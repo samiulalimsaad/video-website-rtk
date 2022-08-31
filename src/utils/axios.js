@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const axiosIntance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://fake-api-json-server-saad.herokuapp.com",
 });

@@ -30,13 +30,13 @@ export default function VideoGridItem({ video }) {
                 </div>
 
                 <div className="flex flex-row mt-2 gap-2">
-                    <a href="#" className="shrink-0">
+                    <p className="shrink-0">
                         <img
                             src={avatar}
                             className="rounded-full h-6 w-6"
                             alt="Learn with Sumit"
                         />
-                    </a>
+                    </p>
 
                     <div clas="flex flex-col">
                         <Link to={`/videos/${id}`}>
