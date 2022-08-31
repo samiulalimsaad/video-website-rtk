@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     tags: [],
     search: "",
+    page: 1,
+    limit: 5,
 };
 
 export const filterSlice = createSlice({
@@ -19,7 +21,16 @@ export const filterSlice = createSlice({
         searched: (state, action) => {
             state.search = action.payload;
         },
-        reset: (state, action) => initialState,
+        pageUpdated: (state, action) => {
+            state.page = action.payload;
+        },
+        limitUpdated: (state, action) => {
+            state.limit = action.payload;
+        },
+        reset: (state, action) => {
+            state.search = "";
+            state.limit = [];
+        },
     },
 });
 
