@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { filterActions } from "../../features/filter/filterSlice";
 import { getTags } from "../../features/tags/tagsSlice";
 import Tag from "./Tag";
 
@@ -14,18 +15,28 @@ export default function Tags() {
         dispatch(getTags());
     }, []);
 
+    const filterResetHandler = () => {
+        dispatch(filterActions.reset());
+    };
+
     if (!isLoading && !isError && tags.length === 0) {
         return null;
     }
 
-    if (!isLoading && !isError && tags.length)
-        return (
-            <section>
-                <div className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
-                    {tags.map((tag) => (
-                        <Tag key={tag.id} tag={tag} />
-                    ))}
+    return (
+        <section>
+            <div className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto justify-between">
+                <div className="flex gap-2">
+                    {tags.length &&
+                        tags.map((tag) => <Tag key={tag.id} tag={tag} />)}
                 </div>
-            </section>
-        );
+                <div
+                    className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full hover:bg-blue-500 hover:text-blue-50 cursor-pointer"
+                    onClick={filterResetHandler}
+                >
+                    reset x
+                </div>
+            </div>
+        </section>
+    );
 }

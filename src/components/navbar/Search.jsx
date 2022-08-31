@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMatch, useNavigate } from "react-router-dom";
 import { filterActions } from "../../features/filter/filterSlice";
 
 export default function Search() {
-    const search = useSelector((state) => state.search);
+    const search = useSelector((state) => state.filter.search);
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const matched = useMatch("/");
 
-    const [input, setInput] = useState(search);
+    const [input, setInput] = useState("");
+
+    useEffect(() => {
+        console.log("called");
+        setInput(search || "");
+    }, [search]);
 
     const onSearch = (e) => {
         e.preventDefault();

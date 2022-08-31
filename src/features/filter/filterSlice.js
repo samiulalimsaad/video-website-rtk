@@ -19,6 +19,7 @@ export const filterSlice = createSlice({
         searched: (state, action) => {
             state.search = action.payload;
         },
+        reset: (state, action) => initialState,
     },
 });
 
