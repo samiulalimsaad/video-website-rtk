@@ -13,7 +13,6 @@ export default function Search() {
     const [input, setInput] = useState("");
 
     useEffect(() => {
-        console.log("called");
         setInput(search || "");
     }, [search]);
 

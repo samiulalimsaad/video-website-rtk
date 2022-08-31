@@ -15,8 +15,6 @@ export default function RelatedVideoList({ id, tags }) {
         dispatch(getRelatedVideos({ tags, id }));
     }, []);
 
-    console.log({ relatedVideos });
-
     let content = null;
 
     if (isLoading) {
