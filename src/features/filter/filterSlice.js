@@ -5,6 +5,7 @@ const initialState = {
     search: "",
     page: 1,
     limit: 5,
+    author: "",
 };
 
 export const filterSlice = createSlice({
@@ -27,10 +28,14 @@ export const filterSlice = createSlice({
         limitUpdated: (state, action) => {
             state.limit = action.payload;
         },
-        reset: (state, action) => {
+        authorUpdated: (state, action) => {
+            state.author = action.payload;
+            state.tags = [];
             state.search = "";
-            state.limit = [];
+            state.page = 1;
+            state.limit = 5;
         },
+        reset: (state, action) => initialState,
     },
 });
 
