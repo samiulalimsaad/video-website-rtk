@@ -5,5 +5,7 @@ export const fetchVideos = async ({ tags, search, limit, page, author }) => {
         tags?.length && tags?.map((tag) => `tags_like=${tag}`).join("&");
     query += `&q=${search}&_limit=${limit}&_page=${page}&author_like=${author}`;
 
-    return (await axiosIntance.get(`/videos?${query}`)).data;
+    const { data, headers } = await axiosIntance.get(`/videos?${query}`);
+    const total = +headers["x-total-count"];
+    return { data, total };
 };
