@@ -18,7 +18,11 @@ export default function RelatedVideoListItem({ relatedVideo }) {
         <div className="w-full flex flex-row gap-2 mb-4">
             <div className="relative w-[168px] h-[94px] flex-none duration-300 hover:scale-[1.03]">
                 <Link to={`/videos/${id}`}>
-                    <img src={thumbnail} className="object-cover" alt={title} />
+                    <img
+                        src={thumbnail}
+                        className="object-cover h-24 w-full"
+                        alt={title}
+                    />
                 </Link>
                 <p className="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py">
                     {duration}

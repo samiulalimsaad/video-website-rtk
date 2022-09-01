@@ -5,6 +5,7 @@ import VideoPlayer from "../components/description/Player";
 import VideoDescription from "../components/description/VideoDescription";
 import RelatedVideoList from "../components/list/RelatedVideoList";
 import Loading from "../components/ui/Loading";
+import { filterActions } from "../features/filter/filterSlice";
 import { getVideo } from "../features/video/videoSlice";
 
 export default function Video() {
@@ -18,6 +19,7 @@ export default function Video() {
 
     useEffect(() => {
         dispatch(getVideo(id));
+        dispatch(filterActions.reset());
     }, [id]);
 
     let content = null;

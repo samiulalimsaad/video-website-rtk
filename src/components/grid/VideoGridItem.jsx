@@ -19,7 +19,7 @@ export default function VideoGridItem({ video }) {
                     <Link to={`/videos/${id}`}>
                         <img
                             src={thumbnail}
-                            className="w-full h-auto"
+                            className="w-full h-40 object-cover"
                             alt="Some video title"
                         />
                     </Link>
